@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.mibanco.clientecdtdigitalgrpc.es.proto.service";
+option java_outer_classname = "ClienteCDTDigitalServiceProto";
+import "google/protobuf/wrappers.proto";
+import "google/protobuf/empty.proto";
+
+message ClienteCDTDigital {
+    int64 id = 1;
+    string nombre = 2;
+    string mail = 3;
+}
+
+message ClienteCDTDigitalList {
+    repeated ClienteCDTDigital resultList = 1;
+    google.protobuf.Int64Value resultCount = 2;
+}
+
+service ClienteCDTDigitalService {
+    rpc create(ClienteCDTDigital) returns (ClienteCDTDigital) {};
+    //rpc update(ClienteCDTDigital) returns (ClienteCDTDigital) {};
+    //rpc findById(google.protobuf.Int64Value) returns (ClienteCDTDigital) {};
+    rpc list(google.protobuf.Empty) returns (ClienteCDTDigitalList) {};
+    //rpc delete(google.protobuf.Int64Value) returns (google.protobuf.BoolValue) {};
+
+}
